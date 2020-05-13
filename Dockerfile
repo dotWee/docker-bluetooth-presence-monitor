@@ -20,6 +20,7 @@ RUN apk add --no-cache \
         bluez-deprecated `# hcidump` \
         coreutils `# timeout busybox implementation incompatible` \
         curl `# support/data https://api.macvendors.com/` \
+        gawk `# in verbose mode:  %*x formats are not supported` \
         mosquitto-clients \
         tini \
     && find / -xdev -type f -perm /u+s -exec chmod -c u-s {} \; \
