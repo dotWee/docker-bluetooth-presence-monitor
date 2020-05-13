@@ -10,7 +10,7 @@ services:
     container_name: mqtt_bluetooth_presence_monitor
     volumes:
     # > ./support/init: line 60: /monitor-config/.public_name_cache: Permission denied
-    - config:/config:rw
+    - config:/monitor-config:rw
     network_mode: host # bluetooth
     userns_mode: host # required for host network mode
     security_opt: [no-new-privileges]
