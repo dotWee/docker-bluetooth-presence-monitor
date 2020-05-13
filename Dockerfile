@@ -12,7 +12,6 @@ RUN chown -R 0:0 /tmp/monitor \
     && chmod a+rX -R -c /tmp/monitor
 
 FROM alpine:3.11
-# > ./support/init: line 60: /monitor-config/.public_name_cache: Permission denied
 RUN apk add --no-cache \
         bash \
         bluez-btmon \
@@ -22,12 +21,13 @@ RUN apk add --no-cache \
     && find / -xdev -type f -perm /u+s -exec chmod -c u-s {} \; \
     && find / -xdev -type f -perm /g+s -exec chmod -c g-s {} \; \
     && mkdir /monitor-config \
-    && chmod a+rwxt /monitor-config
+    && chmod a+rwxt /monitor-config `# .public_name_cache`
 ENTRYPOINT ["/sbin/tini", "--"]
 VOLUME /monitor-config
+COPY --from=download /tmp/monitor /monitor
+RUN chmod a+rwxt /monitor `# mkfifo main_pipe|log_pipe|packet_pipe`
 # still using rwxt on $CONFIG_DIR_PATH to support arbitrary uids
 USER nobody
-COPY --from=download /tmp/monitor /monitor
 # > line 1986: main_pipe: No such file or directory
 WORKDIR /monitor
 CMD ["bash", "monitor.sh", "-D", "/monitor-config"]
