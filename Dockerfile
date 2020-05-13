@@ -16,6 +16,7 @@ RUN apk add --no-cache \
         bash \
         bluez-btmon \
         bluez-deprecated `# hcidump` \
+        coreutils `# timeout busybox implementation incompatible` \
         mosquitto-clients \
         tini \
     && find / -xdev -type f -perm /u+s -exec chmod -c u-s {} \; \
