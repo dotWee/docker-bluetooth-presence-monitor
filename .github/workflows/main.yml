@@ -33,7 +33,7 @@ jobs:
             --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
       
       - name: login to github packages
-        run: echo "${{ secrets.GH_REGISTRY_TOKEN }}" | docker login -u "${{ secrets.GH_REGISTRY_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.GH_REGISTRY_TOKEN }}" | docker login https://docker.pkg.github.com -u "${{ secrets.GH_REGISTRY_USERNAME }}" --password-stdin
 
       - name: build & push the image to github docker registry
         run: |
