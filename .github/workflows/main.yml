@@ -26,8 +26,17 @@ jobs:
       - name: login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       
-      - name: build the image
+      - name: build & push the image to docker hub
         run: |
           docker buildx build --push \
             --tag dotwee/bluetooth-presence-monitor:latest \
+            --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
+      
+      - name: login to github packages
+        run: echo "${{ secrets.GH_REGISTRY_TOKEN }}" | docker login -u "${{ secrets.GH_REGISTRY_USERNAME }}" --password-stdin
+
+      - name: build & push the image to github docker registry
+        run: |
+          docker buildx build --push \
+            --tag docker.pkg.github.com/dotwee/docker-bluetooth-presence-monitor/bluetooth-presence-monitor:latest \
             --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
