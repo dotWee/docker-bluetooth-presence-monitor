@@ -1,21 +1,21 @@
 version: '2.2'
 
-volumes:
-  config:
-
 services:
-  monitor:
-    build: .
-    image: fphammerle/andrewjfreyer-mqtt-bluetooth-presence-monitor
-    container_name: mqtt_bluetooth_presence_monitor
+  bluetooth-presence-monitor:
+    #image: fphammerle/andrewjfreyer-mqtt-bluetooth-presence-monitor
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: bluetooth-presence-monitor
     volumes:
-    # > ./support/init: line 60: /monitor-config/.public_name_cache: Permission denied
-    - config:/monitor-config:rw
+      - ./config:/config:rw
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     network_mode: host # bluetooth
-    userns_mode: host # required for host network mode
-    security_opt: [no-new-privileges]
-    # docker-compose >=2.2,<3
-    cpus: 0.4
-    mem_limit: 32M
+    #cpus: 0.4
+    #mem_limit: 32M
+    restart: always
+    cap_add:
+      - NET_ADMIN
+    #command: ["bash", "/monitor/monitor.sh", "-V", "-r", "-a", "-b", "-D", "/config"]
 
 # https://docs.docker.com/compose/compose-file/compose-file-v2/
