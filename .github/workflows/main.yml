@@ -30,4 +30,4 @@ jobs:
         run: |
           docker buildx build --push \
             --tag dotwee/bluetooth-presence-monitor:latest \
-            --platform linux/amd64,linux/arm/v7,linux/arm64 .
+            --platform linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64 .
