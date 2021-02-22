@@ -2,7 +2,7 @@ version: '2.2'
 
 services:
   bluetooth-presence-monitor:
-    #image: fphammerle/andrewjfreyer-mqtt-bluetooth-presence-monitor
+    # image: dotwee/bluetooth-presence-monitor:latest
     build: 
       context: .
       dockerfile: Dockerfile
@@ -17,5 +17,3 @@ services:
     cap_add:
       - NET_ADMIN
     #command: ["bash", "/monitor/monitor.sh", "-V", "-r", "-a", "-b", "-D", "/config"]
-
-# https://docs.docker.com/compose/compose-file/compose-file-v2/
