@@ -1,8 +1,25 @@
-# docker-bluetooth-presence-monitor
+# [`dotwee/bluetooth-presence-monitor`](https://hub.docker.com/r/dotwee/bluetooth-presence-monitor)
 
-[![build and publish docker image](https://github.com/dotWee/docker-bluetooth-presence-monitor/actions/workflows/main.yml/badge.svg)](https://github.com/dotWee/docker-bluetooth-presence-monitor/actions/workflows/main.yml)
+![github status](https://img.shields.io/github/workflow/status/dotwee/docker-bluetooth-presence-monitor/build%20and%20publish%20docker%20image/master?logo=GitHub)
+![github activity](https://img.shields.io/github/last-commit/dotwee/docker-bluetooth-presence-monitor?logo=github)
+![github open issues](https://badgen.net/github/open-issues/dotwee/docker-bluetooth-presence-monitor?icon=github)
+![docker pulls](https://badgen.net/docker/pulls/dotwee/bluetooth-presence-monitor?icon=docker&label=pulls)
 
-**unprivileged** docker image that wraps [andrewjfreyer/monitor](https://github.com/andrewjfreyer/monitor), with support on running on arm platforms like a raspberry pi.
+**Unprivileged** docker image that wraps [andrewjfreyer/monitor](https://github.com/andrewjfreyer/monitor), with support on running on arm platforms like a raspberry pi.
+
+## pulling
+
+### from [**docker hub**](https://hub.docker.com/r/dotwee/bluetooth-presence-monitor)
+
+```bash
+$ docker pull dotwee/bluetooth-presence-monitor:latest
+```
+
+### from [**github packages**](https://github.com/dotWee/docker-bluetooth-presence-monitor/pkgs/container/bluetooth-presence-monitor)
+
+```bash
+$ docker pull ghcr.io/dotwee/bluetooth-presence-monitor:latest
+```
 
 ## tags
 
