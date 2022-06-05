@@ -1,0 +1,23 @@
+name: update docker hub repository description & readme
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - README.md
+      - .github/workflows/docker-hub-description.yml
+
+jobs:
+  update-docker-hub-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+      
+      - name: update docker hub repository description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: dotwee
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: dotwee/bluetooth-presence-monitor
+          short-description: ${{ github.event.repository.description }}
