@@ -1,6 +1,6 @@
 # [`dotwee/bluetooth-presence-monitor`](https://hub.docker.com/r/dotwee/bluetooth-presence-monitor)
 
-![github status](https://img.shields.io/github/workflow/status/dotwee/docker-bluetooth-presence-monitor/build%20and%20publish%20docker%20image/master?logo=GitHub)
+![github status](https://img.shields.io/github/actions/workflow/status/dotwee/docker-bluetooth-presence-monitor/main.yml?branch=master&logo=GitHub)
 ![github activity](https://img.shields.io/github/last-commit/dotwee/docker-bluetooth-presence-monitor?logo=github)
 ![github open issues](https://badgen.net/github/open-issues/dotwee/docker-bluetooth-presence-monitor?icon=github)
 ![docker pulls](https://badgen.net/docker/pulls/dotwee/bluetooth-presence-monitor?icon=docker&label=pulls)
