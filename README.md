@@ -52,9 +52,15 @@ services:
     volumes:
       - ./config:/config:rw
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # optionally bind your host's time config readonly
+      # or use the TZ environment variable
+      #- /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
     network_mode: host # bluetooth
     restart: always
     cap_add:
       - NET_ADMIN
+    # optionally set your timezone (UTC is used by default)
+    # environment:
+    #   - TZ="Europe/Berlin"
 ```
-

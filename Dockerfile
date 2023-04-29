@@ -1,7 +1,8 @@
 # syntax=docker/dockerfile:1
 
 FROM alpine:3.11
-RUN apk add --no-cache git
+ENV TZ UTC
+RUN apk add --no-cache git tzdata
 LABEL org.opencontainers.image.source=https://github.com/dotWee/docker-bluetooth-presence-monitor
 RUN git clone https://github.com/andrewjfreyer/monitor /monitor
 

@@ -10,6 +10,11 @@ services:
     volumes:
       - ./config:/config:rw
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+
+      # optionally bind your host's time config readonly
+      # or use the TZ environment variable
+      #- /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
     network_mode: host # bluetooth
     #cpus: 0.4
     #mem_limit: 32M
@@ -17,3 +22,6 @@ services:
     cap_add:
       - NET_ADMIN
     #command: ["bash", "/monitor/monitor.sh", "-V", "-r", "-a", "-b", "-D", "/config"]
+    # optionally set your timezone (UTC is used by default)
+    # environment:
+    #   - TZ="Europe/Berlin"
